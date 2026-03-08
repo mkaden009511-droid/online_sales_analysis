@@ -1,18 +1,21 @@
 from product import Product
 from product_manager import ProductManager
+from cart import Cart
 
 manager = ProductManager()
 
-p1 = Product("Laptop", 1000, 5)
-p2 = Product("Telefon", 500, 10)
-p3 = Product("Monitor", 300, 7)
+p1 = Product("Laptop pro", 1200, 3)
+p2 = Product("samsung", 600, 8)
+p3 = Product("Monitor HD", 350, 5)
 
 manager.add_product(p1)
 manager.add_product(p2)
 manager.add_product(p3)
 
-print("Lista proizvoda:")
-manager.show_products()
+cart = Cart()
+cart.add_to_cart(p1)
+cart.add_to_cart(p2)
+cart.add_to_cart(p3)
 
-print("Ukupna vrednost inventara:")
-print(manager.total_value())
+cart.show_cart()
+print("Total amount to pay:", cart.total_amount())
